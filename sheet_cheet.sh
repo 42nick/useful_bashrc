@@ -38,3 +38,13 @@ chown :new_group <filename>
 # Usefule numbers:
 # 600 --> owner can rw, the rest has no rights
 # 
+
+### ssh 
+# generating a key
+ssh-keygen -t rsa -b 4096 # older algorithm, 2048 should be long enough for encryption
+ssh-keygen -t ed25519 # newer algorithm, may not be supported by every system
+
+# copy the ssh-key to the host --> only copy the public key !!!
+ssh-copy-id -i ~/.ssh/ed25519.pub user@host
+# manual way: On the host edit ~/.ssh/authorized_keys and add the public key authorized_keys should have 644 as permission. 
+
