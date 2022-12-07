@@ -47,3 +47,6 @@ function dvenv() {
 }
 
 alias avenv='source venv/bin/activate'
+alias hpipdev='pip install -e .[dev]'
+alias hpipe='pip install -e .'
+alias htouchinitpy='touch __init__.py'
