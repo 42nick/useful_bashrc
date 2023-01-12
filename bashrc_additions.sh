@@ -8,9 +8,12 @@ alias gs='git status'
 alias ga='git add'
 alias gaa='git add --all'
 alias gc='git commit'
+alias gm='git commit -m '
 alias gl='git log --oneline'
 alias gb='git checkout -b'
 alias gd='git diff'
+alias gp='git push'
+alias ghome='cd `git rev-parse --show-toplevel`'
 
 # Python related
 function cvenv() {
@@ -50,3 +53,9 @@ alias avenv='source venv/bin/activate'
 alias hpipdev='pip install -e .[dev]'
 alias hpipe='pip install -e .'
 alias htouchinitpy='touch __init__.py'
+alias hpytest='pytest --disable-warnings'
+alias hpsuser='ps -u -a '
+alias hduone='du -h --max-depth=1 | sort -h'
+alias hcount='find . -type f | wc -l'
+alias hcp='rsync -ah --info=progress2'
+
