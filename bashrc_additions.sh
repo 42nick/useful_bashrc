@@ -1,5 +1,6 @@
 # Easily accessing the bashrc from anywhere you want
 alias hnanobashrc='nano ~/.bashrc'
+alias hcodebashrc='nano ~/.bashrc'
 alias hsourcebashrc='source ~/.bashrc'
 alias hcatbashrc='cat ~/.bashrc'
 
@@ -13,6 +14,7 @@ alias gl='git log --oneline'
 alias gb='git checkout -b'
 alias gd='git diff'
 alias gp='git push'
+alias gfp='git fetch --all && git pull'
 alias ghome='cd `git rev-parse --show-toplevel`'
 
 # Python related
