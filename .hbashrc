@@ -1,3 +1,5 @@
+# source $HOME/.hbashrc # to place in the .bashrc to source this custom additions.
+
 # Easily accessing the bashrc from anywhere you want
 alias hnanobashrc='nano ~/.bashrc'
 alias hcodebashrc='nano ~/.bashrc'
@@ -8,7 +10,6 @@ alias hcatbashrc='cat ~/.bashrc'
 alias gs='git status'
 alias ga='git add'
 alias gaa='git add --all'
-alias gc='git commit'
 alias gm='git commit -m '
 alias gl='git log --oneline'
 alias gb='git checkout -b'
@@ -16,6 +17,17 @@ alias gd='git diff'
 alias gp='git push'
 alias gfp='git fetch --all && git pull'
 alias ghome='cd `git rev-parse --show-toplevel`'
+alias gsubmoduleinitrec='git submodule update --init --recursive'
+function hgmp() {
+    if [ "$#" -ne 1 ]; then
+        echo "Please provide a commit message for commiting and pushing in one line."
+        echo "E.g.: hgmp "my commit msg"
+        return -1
+    else
+        git commit -m "$1" && git push
+    fi
+}
+
 
 # Python related
 function cvenv() {
