@@ -2,7 +2,9 @@
 
 # Easily accessing the bashrc from anywhere you want
 alias hnanobashrc='nano ~/.bashrc'
+alias hhnanobashrc='nano ~/.hbashrc'
 alias hcodebashrc='nano ~/.bashrc'
+alias hhcodebashrc='nano ~/.hbashrc'
 alias hsourcebashrc='source ~/.bashrc'
 alias hcatbashrc='cat ~/.bashrc'
 
