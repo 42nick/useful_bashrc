@@ -1,12 +1,13 @@
 # source $HOME/.hbashrc # to place in the .bashrc to source this custom additions.
 
 # Easily accessing the bashrc from anywhere you want
-alias hnanobashrc='nano ~/.bashrc'
-alias hhnanobashrc='nano ~/.hbashrc'
-alias hcodebashrc='nano ~/.bashrc'
-alias hhcodebashrc='nano ~/.hbashrc'
-alias hsourcebashrc='source ~/.bashrc'
-alias hcatbashrc='cat ~/.bashrc'
+alias hnanobashrc='nano $HOME.bashrc'
+alias hhnanobashrc='nano $HOME.hbashrc'
+alias hcodebashrc='nano $HOME.bashrc'
+alias hhcodebashrc='nano $HOME.hbashrc'
+alias hsourcebashrc='source $HOME.bashrc'
+alias hcatbashrc='cat $HOME.bashrc'
+alias hhcatbashrc='cat $HOME.hbashrc'
 
 # Git related
 alias gs='git status'
@@ -29,7 +30,6 @@ function hgmp() {
         git commit -m "$1" && git push
     fi
 }
-
 
 # Python related
 function cvenv() {
@@ -74,4 +74,3 @@ alias hpsuser='ps -u -a '
 alias hduone='du -h --max-depth=1 | sort -h'
 alias hcount='find . -type f | wc -l'
 alias hcp='rsync -ah --info=progress2'
-
