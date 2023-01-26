@@ -1,13 +1,13 @@
 # source $HOME/.hbashrc # to place in the .bashrc to source this custom additions.
 
 # Easily accessing the bashrc from anywhere you want
-alias hnanobashrc='nano $HOME.bashrc'
-alias hhnanobashrc='nano $HOME.hbashrc'
-alias hcodebashrc='nano $HOME.bashrc'
-alias hhcodebashrc='nano $HOME.hbashrc'
-alias hsourcebashrc='source $HOME.bashrc'
-alias hcatbashrc='cat $HOME.bashrc'
-alias hhcatbashrc='cat $HOME.hbashrc'
+alias hnanobashrc='nano $HOME/.bashrc'
+alias hhnanobashrc='nano $HOME/.hbashrc'
+alias hcodebashrc='code $HOME/.bashrc'
+alias hhcodebashrc='code $HOME/.hbashrc'
+alias hsourcebashrc='source $HOME/.bashrc'
+alias hcatbashrc='cat $HOME/.bashrc'
+alias hhcatbashrc='cat $HOME/.hbashrc'
 
 # Git related
 alias gs='git status'
@@ -21,6 +21,7 @@ alias gp='git push'
 alias gfp='git fetch --all && git pull'
 alias ghome='cd `git rev-parse --show-toplevel`'
 alias gsubmoduleinitrec='git submodule update --init --recursive'
+alias greshead1='git reset HEAD~1' # undos the last commit
 function hgmp() {
     if [ "$#" -ne 1 ]; then
         echo "Please provide a commit message for commiting and pushing in one line."
@@ -30,6 +31,7 @@ function hgmp() {
         git commit -m "$1" && git push
     fi
 }
+
 
 # Python related
 function cvenv() {
@@ -65,12 +67,12 @@ function dvenv() {
     deactivate
 }
 
-alias avenv='source venv/bin/activate'
-alias hpipdev='pip install -e .[dev]'
-alias hpipe='pip install -e .'
-alias htouchinitpy='touch __init__.py'
-alias hpytest='pytest --disable-warnings'
-alias hpsuser='ps -u -a '
-alias hduone='du -h --max-depth=1 | sort -h'
-alias hcount='find . -type f | wc -l'
-alias hcp='rsync -ah --info=progress2'
+alias avenv='source venv/bin/activate'                              # activate a venv
+alias hpipdev='pip install -e .[dev]'                               # install venv via pip with dev-dependencies
+alias hpipe='pip install -e .'                                      # installs package editable
+alias htouchinitpy='touch __init__.py'                              # creates a __init__.py file
+alias hpytest='pytest --disable-warnings'                           # executes pytest without the warnings
+alias hpsuser='ps -u -a '                                           # 
+alias hduone='du -h --max-depth=1 | sort -h'                        # prints folder storage for one level sorted by size
+alias hcount='find . -type f | wc -l'                               # counts the number of files in the current dir
+alias hcp='rsync -ah --info=progress2'                              # copys with a progess bar :)
