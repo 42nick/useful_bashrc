@@ -48,3 +48,5 @@ ssh-keygen -t ed25519 # newer algorithm, may not be supported by every system
 ssh-copy-id -i ~/.ssh/ed25519.pub user@host
 # manual way: On the host edit ~/.ssh/authorized_keys and add the public key authorized_keys should have 644 as permission. 
 
+### useful nvida-queries
+nvidia-smi -i 0 --loop-ms=1000 --format=csv,noheader,nounits --query-gpu=utilization.gpu,utilization.memory > htest.txt
