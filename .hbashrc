@@ -11,12 +11,12 @@ alias hhcatbashrc='cat $HOME/.hbashrc'
 
 # Git related
 alias gs='git status'
-alias gd='git diff'
 alias ga='git add'
-alias gl='git log --oneline'
-alias gb='git checkout -b'
 alias gaa='git add --all'
 alias gm='git commit -m '
+alias gl='git log --oneline'
+alias gb='git checkout -b'
+alias gd='git diff'
 alias gp='git push'
 alias gfp='git fetch --all && git pull'
 alias ghome='cd `git rev-parse --show-toplevel`'
@@ -67,10 +67,27 @@ function dvenv() {
     deactivate
 }
 
-alias avenv='source venv/bin/activate'                              # activate a venv
+function avenv() {
+    # This function activates the venv or .venv folder in the current directory.
+    if [ "$#" -ne 1 ]; then
+        if source venv/bin/activate; then
+            echo "venv activated"
+        elif source .venv/bin/activate; then
+            echo ".venv activated"
+        else
+            echo "No venv found"
+        fi
+    else
+        if source "$1"/bin/activate; then
+            echo "$1 activated"
+        else
+            echo "Venv starting with $1 not found"
+        fi
+    fi
+}
+
 alias hpipdev='pip install -e .[dev]'                               # install venv via pip with dev-dependencies
 alias hpipe='pip install -e .'                                      # installs package editable
-alias hpipupdate='pip install -U pip'                                    # upgrades pip
 alias htouchinitpy='touch __init__.py'                              # creates a __init__.py file
 alias hpytest='pytest --disable-warnings'                           # executes pytest without the warnings
 alias hpsuser='ps -u -a '                                           # 
