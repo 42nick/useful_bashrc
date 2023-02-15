@@ -40,6 +40,7 @@ function cvenv() {
     # The python version can be passed as an addional argument.
 
     python_version="3.11"
+    venv_name=".venv"
     if [ "$#" -ne 1 ]; then
         echo "Using default python version of $python_version"
     else
@@ -49,7 +50,14 @@ function cvenv() {
             return -1
         fi
     fi
-    cmd="python$python_version -m venv .venv && source .venv/bin/activate && pip install -U pip"
+
+    if [ "$#" -eq 2 ]; then
+        venv_name="$2"
+        echo "Using venv name $venv_name"
+    else
+        echo "Using default venv name $venv_name"
+    fi
+    cmd="python$python_version -m venv $venv_name && source $venv_name/bin/activate && pip install -U pip"
     eval "$cmd"
 }
 
@@ -57,13 +65,15 @@ function dvenv() {
     # This function removes the venv folder in the current directory.
     # When argument -y is given the folder will be directly removed.
     if [ "$#" -ne 1 ]; then
-        printf 'Do you really want to remove the .venv with "rm -rf .venv"? (y/n)\n'
+        printf 'Do you really want to remove the .venv and venv with "rm -rf .venv"? (y/n)\n'
         read answer
         if [ "$answer" != "${answer#[Yy]}" ]; then
             rm -rf .venv
+            rm -rf venv
         fi
     elif [ "$1" == "-y" ]; then
         rm -rf .venv
+        rm -rf venv
     fi
     deactivate
 }
@@ -71,23 +81,30 @@ function dvenv() {
 function avenv() {
     # This function activates the venv or .venv folder in the current directory.
     if [ "$#" -ne 1 ]; then
-        if source venv/bin/activate; then
-            echo "venv activated"
-        elif source .venv/bin/activate; then
+        source .venv/bin/activate
+        if [ $? -eq 0 ]; then
             echo ".venv activated"
-        else
-            echo "No venv found"
+            return 0
         fi
+
+        source venv/bin/activate
+        if [ $? -eq 0 ]; then
+            echo "venv activated"
+            return 0
+        fi
+
+        echo "No venv found"
     else
-        if source "$1"/bin/activate; then
+        source "$1"/bin/activate
+        if [ $? -eq 0 ]; then
             echo "$1 activated"
-        else
-            echo "Venv starting with $1 not found"
+            return 0
         fi
+        echo "Venv starting with $1 not found"
     fi
 }
 
-alias avenv='source venv/bin/activate'                              # activate a venv
+# alias avenv='source venv/bin/activate'                              # activate a venv
 alias hpipdev='pip install -e .[dev]'                               # install venv via pip with dev-dependencies
 alias hpipe='pip install -e .'                                      # installs package editable
 alias hpipupdate='pip install -U pip'                                    # upgrades pip
