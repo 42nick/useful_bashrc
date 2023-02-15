@@ -49,7 +49,7 @@ function cvenv() {
             return -1
         fi
     fi
-    cmd="python$python_version -m venv venv && source venv/bin/activate && pip install -U pip"
+    cmd="python$python_version -m venv .venv && source .venv/bin/activate && pip install -U pip"
     eval "$cmd"
 }
 
@@ -57,13 +57,13 @@ function dvenv() {
     # This function removes the venv folder in the current directory.
     # When argument -y is given the folder will be directly removed.
     if [ "$#" -ne 1 ]; then
-        printf 'Do you really want to remove the venv with "rm -rf venv"? (y/n)\n'
+        printf 'Do you really want to remove the .venv with "rm -rf .venv"? (y/n)\n'
         read answer
         if [ "$answer" != "${answer#[Yy]}" ]; then
-            rm -rf venv
+            rm -rf .venv
         fi
     elif [ "$1" == "-y" ]; then
-        rm -rf venv
+        rm -rf .venv
     fi
     deactivate
 }
