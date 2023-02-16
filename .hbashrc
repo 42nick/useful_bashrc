@@ -11,6 +11,8 @@ alias hhcatbashrc='cat $HOME/.hbashrc'
 
 # Git related
 alias gs='git status'
+alias gst='git stash'
+alias gsp='git stash pop'
 alias gd='git diff'
 alias ga='git add'
 alias gl='git log --oneline'
