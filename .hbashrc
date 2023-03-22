@@ -25,6 +25,7 @@ alias gfp='git fetch --all && git pull'
 alias ghome='cd `git rev-parse --show-toplevel`'
 alias gsubmoduleinitrec='git submodule update --init --recursive'
 alias greshead1='git reset HEAD~1' # undos the last commit
+alias gcheckminus='git checkout -' # goes to the previous branch
 function hgmp() {
     if [ "$#" -ne 1 ]; then
         echo "Please provide a commit message for commiting and pushing in one line."
