@@ -118,3 +118,4 @@ alias hpsuser='ps -u -a '                                           #
 alias hduone='du -h --max-depth=1 | sort -h'                        # prints folder storage for one level sorted by size
 alias hcount='find . -type f | wc -l'                               # counts the number of files in the current dir
 alias hcp='rsync -ah --info=progress2'                              # copys with a progess bar :)
+alias hnvidiasmi='watch -n 1 nvidia-smi'                            # watching nvidia gpu load
