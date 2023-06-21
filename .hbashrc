@@ -36,7 +36,15 @@ function hgmp() {
         git commit -m "$1" && git push
     fi
 }
-
+function hgmnoverifypush() {
+    if [ "$#" -ne 1 ]; then
+        echo "Please provide a commit message for commiting and pushing in one line."
+        echo "E.g.: hgmp \"my commit msg\""
+        return -1
+    else
+        git commit -m "$1" --no-verify && git push
+    fi
+}
 
 # Python related
 function cvenv() {
