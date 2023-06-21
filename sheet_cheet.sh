@@ -50,3 +50,11 @@ ssh-copy-id -i ~/.ssh/ed25519.pub user@host
 
 ### useful nvida-queries
 nvidia-smi -i 0 --loop-ms=1000 --format=csv,noheader,nounits --query-gpu=utilization.gpu,utilization.memory > htest.txt
+
+### tmux
+tmux                     # start a new tmux session
+tmux attach -t x         # attach to session with number x. E.g. x = 0
+
+# commands
+ctrl b + d               # going out of tmux
+ctrl b + [               # scrolling --> q for stopping scrolling
