@@ -58,3 +58,4 @@ tmux attach -t x         # attach to session with number x. E.g. x = 0
 # commands
 ctrl b + d               # going out of tmux
 ctrl b + [               # scrolling --> q for stopping scrolling
+ctrl b + & --> y         # kills the current tmux terminal
