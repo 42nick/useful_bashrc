@@ -117,6 +117,18 @@ function avenv() {
     fi
 }
 
+
+function hpipgrep() {
+    # This function executes a pip list and greps the provided string.
+    if [ "$#" -ne 1 ]; then
+        printf 'You need to prode a string as an argument for grep.\nUsage: e.g.: hpipgrep numpy'
+        return 0
+    fi
+
+    pip list | grep $1
+    
+}
+
 # alias avenv='source venv/bin/activate'                              # activate a venv
 alias hpipdev='pip install -e .[dev]'                               # install venv via pip with dev-dependencies
 alias hpipe='pip install -e .'                                      # installs package editable
