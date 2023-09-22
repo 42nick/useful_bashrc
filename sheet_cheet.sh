@@ -55,6 +55,9 @@ nvidia-smi -i 0 --loop-ms=1000 --format=csv,noheader,nounits --query-gpu=utiliza
 tmux                     # start a new tmux session
 tmux attach -t x         # attach to session with number x. E.g. x = 0
 
+### apt
+apt list -i             # list installed packages
+
 # commands
 ctrl b + d               # going out of tmux
 ctrl b + [               # scrolling --> q for stopping scrolling
