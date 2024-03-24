@@ -134,7 +134,8 @@ function hpipgrep() {
 # alias avenv='source venv/bin/activate'                              # activate a venv
 alias hpipdev='pip install -e .[dev]'                               # install venv via pip with dev-dependencies
 alias hpipe='pip install -e .'                                      # installs package editable
-alias hpipupdate='pip install -U pip'                                    # upgrades pip
+alias hpiprequirements='pip install -r requirements.txt'            # installs the dependencies from requirements.txt
+alias hpipupdate='pip install -U pip'                               # upgrades pip
 alias htouchinitpy='touch __init__.py'                              # creates a __init__.py file
 alias hpytest='pytest --disable-warnings'                           # executes pytest without the warnings
 alias hpsuser='ps -u -a '                                           # 
