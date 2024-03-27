@@ -143,7 +143,7 @@ alias hduone='du -h --max-depth=1 | sort -h'                        # prints fol
 alias hcount='find . -type f | wc -l'                               # counts the number of files in the current dir
 alias hcp='rsync -ah --info=progress2'                              # copys with a progess bar :)
 alias hnvidiasmi='watch -n 1 nvidia-smi'                            # watching nvidia gpu load
-# alias htmux1='tmux attach -t 1'                                     # attach to tmux session 1
+# alias htmux1='tmux attach -t 1'                                   # attach to tmux session 1
 function htmuxattach() {
     if [ "$#" -ne 1 ]; then
         echo "Please provide a number with the number of the session to attach."
@@ -153,6 +153,7 @@ function htmuxattach() {
         tmux attach -t "$1"
     fi
 }
+alias hpoetrylocknoupdate='poetry lock --no-update'                # Creates a new lock file without updating the dependencies
 
 alias ..='cd ..'
 alias ...='cd ../..'
