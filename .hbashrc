@@ -29,6 +29,8 @@ alias gsubmoduleinitrec='git submodule update --init --recursive'
 alias greshead1='git reset HEAD~1' # undos the last commit
 alias gcheckminus='git checkout -' # goes to the previous branch
 alias gmergemaster='git checkout master && gfp && git checkout - && git merge master' # updates the master and merges it to the currently active branch
+alias gcgun='git config --global user.name '
+alias gcgue='git config --global user.email '
 function hgmp() {
     if [ "$#" -ne 1 ]; then
         echo "Please provide a commit message for commiting and pushing in one line."
