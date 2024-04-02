@@ -1,7 +1,7 @@
 # source $HOME/.hbashrc # to place in the .bashrc to source these custom additions.
 
 # Easily accessing the bashrc from anywhere you want
-alias hnanobashrc='nano $HOME/.bashrc'
+alias hnanobashrc='nano $HOME/.bashrc'                                         # Edit the .bashrc with nano
 alias hhnanobashrc='nano $HOME/.hbashrc'
 alias hcodebashrc='code $HOME/.bashrc'
 alias hhcodebashrc='code $HOME/.hbashrc'
