@@ -122,6 +122,7 @@ function avenv() {
     fi
 }
 
+alias hcondadeactivate='conda deactivate'
 
 function hpipgrep() {
     # This function executes a pip list and greps the provided string.
