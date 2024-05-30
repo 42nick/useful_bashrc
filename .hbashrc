@@ -124,6 +124,7 @@ function avenv() {
 
 alias hcondadeactivate='conda deactivate'
 alias hcondacreatevenv='conda create -n "myenv" python=3.11.0'
+alias hcondaenvlist='conda env list'
 
 function hpipgrep() {
     # This function executes a pip list and greps the provided string.
