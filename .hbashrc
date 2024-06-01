@@ -32,6 +32,7 @@ alias gmergemaster='git checkout master && gfp && git checkout - && git merge ma
 alias gmergemain='git checkout main && gfp && git checkout - && git merge main' # updates the main and merges it to the currently active branch
 alias gcgun='git config --global user.name '
 alias gcgue='git config --global user.email '
+alias grv='git remote -v'
 function hgmp() {
     if [ "$#" -ne 1 ]; then
         echo "Please provide a commit message for commiting and pushing in one line."
