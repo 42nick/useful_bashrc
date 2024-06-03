@@ -161,6 +161,7 @@ function htmuxattach() {
     fi
 }
 alias hpoetrylocknoupdate='poetry lock --no-update'                # Creates a new lock file without updating the dependencies
+alias hpoetryinstall='poetry install'                
 
 alias ..='cd ..'
 alias ...='cd ../..'
