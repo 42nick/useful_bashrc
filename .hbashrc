@@ -52,6 +52,7 @@ function hgmnoverifypush() {
         git commit -m "$1" --no-verify && git push
     fi
 }
+alias hprecommitallfiles='pre-commit run --all-files'
 
 # Python related
 function cvenv() {
