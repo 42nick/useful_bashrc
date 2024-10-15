@@ -94,6 +94,12 @@ function dvenv() {
     elif [ "$1" == "-y" ]; then
         rm -rf .venv
         rm -rf venv
+    else
+        printf "Do you really want to remove the virtual environment folder \"$1\" with \"rm -rf $1\"? (y/n)\n"        
+        read answer
+        if [ "$answer" != "${answer#[Yy]}" ]; then
+            rm -rf "$1"
+        fi
     fi
     deactivate
 }
