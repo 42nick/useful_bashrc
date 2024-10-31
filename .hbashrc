@@ -154,7 +154,9 @@ alias htouchinitpy='touch __init__.py'                              # creates a 
 alias hpytest='pytest --disable-warnings'                           # executes pytest without the warnings
 alias hpsuser='ps -u -a '                                           # 
 alias hduone='du -h --max-depth=1 | sort -h'                        # prints folder storage for one level sorted by size
-alias hcount='find . -type f | wc -l'                               # counts the number of files in the current dir
+alias hcount='find . -type f | wc -l'                               # counts the number of files in the current dir recursively
+alias hcountfolder='find . -maxdepth 1 -type d | wc -l'             # counts the number of folders in this directory
+alias hcountfiles='find . -maxdepth 1 -type d | wc -l'             # counts the number of files in this directory
 alias hcp='rsync -ah --info=progress2'                              # copys with a progess bar :)
 alias hnvidiasmi='watch -n 1 nvidia-smi'                            # watching nvidia gpu load
 # alias htmux1='tmux attach -t 1'                                   # attach to tmux session 1
