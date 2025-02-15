@@ -42,7 +42,7 @@ function hgmp() {
         git commit -m "$1" && git push
     fi
 }
-alias hghack='git add --all && git commit -m "debugging" && git push'
+alias hghack='git add --all && git commit -m "fix debugging" && git push'
 function hgmnoverifypush() {
     if [ "$#" -ne 1 ]; then
         echo "Please provide a commit message for commiting and pushing in one line."
