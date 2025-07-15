@@ -1,4 +1,6 @@
-# source $HOME/.hbashrc # to place in the .bashrc to source these custom additions.
+# source $HOME/.hbashrc # to place in the .bashrc to source these custom additions or use: 
+# echo "source \$HOME/.hbashrc" >> ~/.bashrc
+
 
 # Easily accessing the bashrc from anywhere you want
 alias hnanobashrc='nano $HOME/.bashrc'                                         # Edit the .bashrc with nano
