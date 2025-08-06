@@ -198,3 +198,4 @@ alias ......='cd ../../../../..'
 alias .......='cd ../../../../../..'
 
 alias llh='ls -lh'
+alias hexport_env='export $(grep -v '^#' .env | xargs -d '\n')'
