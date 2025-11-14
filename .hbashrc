@@ -174,7 +174,7 @@ hdisk_usage_in_dir() {
         fi
     done
 }
-alias hcp='rsync -ah --info=progress2'                              # copys with a progess bar :)
+alias hcp='rsync -ah --info=progress2'                              # copies with a progess bar :)
 alias hnvidiasmi='watch -n 1 nvidia-smi'                            # watching nvidia gpu load
 # alias htmux1='tmux attach -t 1'                                   # attach to tmux session 1
 function htmuxattach() {
