@@ -198,3 +198,70 @@ alias ......='cd ../../../../..'
 
 alias llh='ls -lh'
 alias hexport_env="export \$(grep -v '^#' .env | xargs -d '\n')"
+
+generate_pw() {
+    # Nutzt das erste Argument als Länge, Standard ist 32
+    local length=${1:-32}
+    
+    python3 <<EOF
+import string, secrets, sys
+
+length = $length
+alphabet = string.ascii_letters + string.digits
+
+# Sicherheits-Check: 
+# Wir brauchen mind. 1 Klein-, 1 Großbuchstaben und 3 Ziffern = 5 Zeichen.
+try:
+    assert length >= 5, "Fehler: Die Länge muss mindestens 5 Zeichen betragen, um die Komplexitätsregeln zu erfüllen."
+except AssertionError as e:
+    print(e)
+    sys.exit(1)
+
+min_digits = max(3, length // 10)
+
+while True:
+    p = ''.join(secrets.choice(alphabet) for _ in range(length))
+    # Überprüfung der Komplexität
+    if (any(c.islower() for c in p) and 
+        any(c.isupper() for c in p) and 
+        sum(c.isdigit() for c in p) >= min_digits):
+        print(p)
+        break
+EOF
+}
+
+generate_pw_special() {
+    local length=${1:-32}
+    
+    python3 <<EOF
+import string, secrets, sys
+
+length = $length
+# Wir definieren Buchstaben, Zahlen und eine sichere Auswahl an Sonderzeichen
+alphabet = string.ascii_letters + string.digits + "!@#$%^&*()-_=+[]{}|;:,.<>?"
+
+# Neuer Sicherheits-Check: 
+# 1 Klein, 1 Groß, 3 Zahlen, 1 Sonderzeichen = min. 6 Zeichen
+try:
+    assert length >= 6, "Fehler: Die Länge muss mindestens 6 Zeichen betragen, um die Komplexitätsregeln zu erfüllen."
+except AssertionError as e:
+    print(e)
+    sys.exit(1)
+
+min_digits = max(3, length // 10)
+
+while True:
+    p = ''.join(secrets.choice(alphabet) for _ in range(length))
+    
+    # Erweiterte Überprüfung der Komplexität
+    has_lower = any(c.islower() for c in p)
+    has_upper = any(c.isupper() for c in p)
+    has_digit = sum(c.isdigit() for c in p) >= min_digits
+    # Prüfen, ob mindestens ein Zeichen aus string.punctuation (oder unserem Set) dabei ist
+    has_special = any(c in "!@#$%^&*()-_=+[]{}|;:,.<>?" for c in p)
+
+    if has_lower and has_upper and has_digit and has_special:
+        print(p)
+        break
+EOF
+}
