@@ -154,7 +154,19 @@ alias hpipupdate='pip install -U pip'                               # upgrades p
 alias htouchinitpy='touch __init__.py'                              # creates a __init__.py file
 alias hpytest='pytest --disable-warnings'                           # executes pytest without the warnings
 alias hpsuser='ps -u -a'                                            # shows processes for all users
-alias hduone='du -h --max-depth=1 | sort -h'                        # prints folder storage for one level sorted by size
+#alias hduone='du -h --max-depth=1 | sort -h'                        # prints folder storage for one level sorted by size
+hduone() {
+    # Nutzt das erste Argument ($1), falls leer dann '.'
+    local target_path=${1:-.}
+    
+    # Prüfen, ob der Pfad existiert, um Fehlermeldungen abzufangen
+    if [ ! -d "$target_path" ]; then
+        echo "Fehler: Verzeichnis '$target_path' existiert nicht."
+        return 1
+    fi
+
+    du -h --max-depth=1 "$target_path" | sort -h
+}
 alias hcount='find . -type f | wc -l'                               # counts the number of files in the current dir recursively
 alias hcountfolder='find . -maxdepth 1 -type d | wc -l'             # counts the number of folders in this directory
 alias hcountfiles='find . -maxdepth 1 -type d | wc -l'              # counts the number of files in this directory
