@@ -211,7 +211,7 @@ alias ......='cd ../../../../..'
 alias llh='ls -lh'
 alias hexport_env="export \$(grep -v '^#' .env | xargs -d '\n')"
 
-generate_pw() {
+hgenerate_pw() {
     # Nutzt das erste Argument als Länge, Standard ist 32
     local length=${1:-32}
     
@@ -242,7 +242,7 @@ while True:
 EOF
 }
 
-generate_pw_special() {
+hgenerate_pw_special() {
     local length=${1:-32}
     
     python3 <<EOF
